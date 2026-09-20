@@ -67,8 +67,8 @@
 ### Installation
 ```bash
 # Clone repository
-git clone https://github.com/Kartikkumar251/sankat-sachi-drone-autonomous-.git
-cd sankat-sachi-drone-autonomous-
+git clone https://github.com/Kartikkumar251/sankat-sathi-drone-autonomous.git
+cd sankat-sathi-drone-autonomous
 
 # Install dependencies
 npm install
@@ -90,5 +90,13 @@ npm run build
 ```
 SEARCH ➔ DETECT ➔ GEO-TAG ➔ ASSESS ➔ ALERT ➔ MAP ➔ VERIFY ➔ RESPOND ➔ REPORT
 ```
+
+---
+
+## 👥 Authors & Contributors
+- **Kartik Kumar** ([@Kartikkumar251](https://github.com/Kartikkumar251)) — Lead Developer & Architecture
+- **Apurva Yadav** ([@apurvayadav7](https://github.com/apurvayadav7)) — Collaborator & Telemetry Integration
+
+---
 
 Built for **Smart India Hackathon (SIH)** and Emergency Disaster Response.

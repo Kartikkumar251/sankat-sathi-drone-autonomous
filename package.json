@@ -1,7 +1,13 @@
 {
   "name": "drone-dashboard",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "SankatSathi - AI Autonomous Search and Rescue Drone Command Center",
+  "author": "Kartik Kumar (https://github.com/Kartikkumar251)",
+  "contributors": [
+    "Kartik Kumar <Kartikkumar251>",
+    "Apurva Yadav <apurvayadav7>"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
