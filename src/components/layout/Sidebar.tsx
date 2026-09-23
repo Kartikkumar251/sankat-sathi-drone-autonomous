@@ -44,6 +44,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed })
       badge: detections.length,
       badgeVariant: 'cyan',
     },
+    {
+      id: 'ai-detector',
+      label: 'AI Object Detector',
+      icon: <Crosshair size={18} />,
+      badge: 'AI LIVE',
+      badgeVariant: 'cyan',
+    },
     { id: 'risk-map', label: 'Risk Map', icon: <Flame size={18} /> },
     { id: 'drone-fleet', label: 'Drone Fleet', icon: <Plane size={18} /> },
     { id: 'search-coverage', label: 'Search Coverage', icon: <Grid size={18} /> },

@@ -37,7 +37,8 @@ export type NavigationTab =
   | 'alerts'
   | 'reports'
   | 'system-health'
-  | 'settings';
+  | 'settings'
+  | 'ai-detector';
 
 interface MissionContextType {
   activeTab: NavigationTab;

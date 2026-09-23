@@ -13,7 +13,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ml:start": "python ml/server.py"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.22",

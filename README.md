@@ -7,7 +7,28 @@
 [![Leaflet](https://img.shields.io/badge/Leaflet-1.9-green.svg)](https://leafletjs.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**SankatSathi** is an emergency command-and-control platform engineered for disaster response teams such as the **National Disaster Response Force (NDRF)**. It bridges autonomous drone swarm telemetry, companion edge AI (NVIDIA Jetson Nano), real-time YOLO perception, geo-tagging, live tactical mapping, hazard intelligence, search coverage, and situational reporting (SITREP).
+**SankatSathi** is an emergency command-and-control platform engineered for disaster response teams such as the **National Disaster Response Force (NDRF)**. It bridges autonomous drone swarm telemetry, companion edge AI (NVIDIA Jetson / YOLOv5n), real-time YOLO perception, geo-tagging, live tactical mapping, hazard intelligence, search coverage, and situational reporting (SITREP).
+
+---
+
+## 🗂️ Project Organization
+
+The repository is modularly structured into clear subfolders:
+
+- **[`prd/`](./prd/)**: Product & System Documentation
+  - [`PRD.md`](./prd/PRD.md) — Comprehensive Product Requirements Document.
+  - [`ARCHITECTURE.md`](./prd/ARCHITECTURE.md) — End-to-end hardware-software architecture and sequence flows.
+  - [`README.md`](./prd/README.md) — Documentation index and specifications guide.
+- **[`ml/`](./ml/)**: Machine Learning & Computer Vision
+  - [`model_engine.py`](./ml/model_engine.py) — YOLOv5n inference engine with resilient model loading and COCO-to-emergency category mapping.
+  - [`server.py`](./ml/server.py) — FastAPI vision microservice for image and real-time frame detection.
+  - [`yolov5nu.pt`](./ml/yolov5nu.pt) — Pretrained YOLOv5 Nano neural weights.
+  - [`requirements.txt`](./ml/requirements.txt) — Python dependencies (`torch`, `ultralytics`, `fastapi`, `uvicorn`).
+  - [`README.md`](./ml/README.md) — ML deployment and API setup guide.
+- **[`src/`](./src/)**: Ground Control Command Center Web Application
+  - `components/` — Tactical HUD, Leaflet GIS Map, Video Feed, SITREP modal, and Mission controls.
+  - `context/` — Centralized reactive state store for drone telemetry and SIH simulation.
+  - `services/` — AI detection client service connecting to the ML engine.
 
 ---
 
@@ -30,7 +51,7 @@
 - **Interactive Triage Pins**: Survivor locations with visual assessment, confidence score, and nearest safe rescue corridor.
 - **Multi-Hazard Perimeter**: Fire thermal radiation, flood inundation, structural collapse, and exposed 11kV live power lines.
 
-### 3. Edge AI Video Stream & Perception (Jetson Nano)
+### 3. Edge AI Video Stream & Perception (Jetson / YOLOv5n)
 - 1080p live simulated optical feed with dynamic YOLO bounding box overlays for `PERSON`, `FIRE`, `DAMAGED STRUCTURE`, and `VEHICLE`.
 - Real-time inference latency (42ms) and FPS monitor (28 FPS).
 - Software-simulated thermal imaging layer preview.
@@ -54,35 +75,32 @@
 - **Cartography**: Leaflet, OpenStreetMap (Tactical Dark Theme)
 - **Visualization & Charts**: Recharts, Canvas HUD
 - **Audio Synthesizer**: Web Audio API (tactical radar beeps and alert chimes)
-- **Icons**: Lucide React
+- **ML / AI Vision**: Python 3.10+, PyTorch, Ultralytics YOLOv5n, FastAPI, Uvicorn
 
 ---
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Node.js (v18 or newer)
-- npm / pnpm / yarn
-
-### Installation
+### 1. Ground Control Frontend (React + Vite)
 ```bash
-# Clone repository
-git clone https://github.com/Kartikkumar251/sankat-sathi-drone-autonomous.git
-cd sankat-sathi-drone-autonomous
-
 # Install dependencies
 npm install
 
 # Start development server
 npm run dev
 ```
+The web dashboard will be available at `http://localhost:5173/`.
 
-The application will be accessible at `http://localhost:5173/`.
-
-### Production Build
+### 2. ML Vision Engine (Python + FastAPI)
 ```bash
-npm run build
+# Install Python dependencies
+pip install -r ml/requirements.txt
+
+# Start ML inference service
+npm run ml:start
+# or: python ml/server.py
 ```
+The ML vision API will run at `http://127.0.0.1:8000/`.
 
 ---
 

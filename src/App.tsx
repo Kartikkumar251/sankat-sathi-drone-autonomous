@@ -16,6 +16,7 @@ import { AlertsCenterView } from './components/alerts/AlertsCenterView';
 import { MissionReportsView } from './components/reports/MissionReportsView';
 import { SystemHealthView } from './components/health/SystemHealthView';
 import { SettingsView } from './components/settings/SettingsView';
+import { ObjectDetectionDashboard } from './components/detector/ObjectDetectionDashboard';
 
 const MainApplication: React.FC = () => {
   const { activeTab, isAuthenticated, authenticate } = useMission();
@@ -49,6 +50,8 @@ const MainApplication: React.FC = () => {
         return <SystemHealthView />;
       case 'settings':
         return <SettingsView />;
+      case 'ai-detector':
+        return <ObjectDetectionDashboard />;
       default:
         return <CommandCenterView />;
     }
